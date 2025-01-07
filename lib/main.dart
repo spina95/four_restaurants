@@ -6,9 +6,8 @@ import 'package:intl/date_symbol_data_local.dart';
 
 Future<void> main() async {
   await Supabase.initialize(
-    url: 'https://yjosbkdcerkyhehdjcvg.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlqb3Nia2RjZXJreWhlaGRqY3ZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYyNTM3ODgsImV4cCI6MjA1MTgyOTc4OH0.H-_gJq49w4kQkz2YViUZQHN4uME4OLuPasbG2u99vj8',
+    url: String.fromEnvironment('SUPABASE_URL'),
+    anonKey: String.fromEnvironment('SUPABASE_KEY'),
   );
   await initializeDateFormatting('it_IT', null);
   runApp(const MainApp());
