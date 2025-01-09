@@ -1,23 +1,29 @@
-class RestaurantVotes {
+class UserVote {
   final String name;
-  final double average;
+  final double vote;
   final String? icon;
   final String? color;
+  final String username;
+  final String userId;
 
-  RestaurantVotes({
+  UserVote({
     required this.name,
-    required this.average,
+    required this.vote,
     this.icon,
     this.color,
+    required this.username,
+    required this.userId,
   });
 
   // Metodo per creare un'istanza di Restaurant da una mappa (ad esempio, dai dati di Supabase)
-  factory RestaurantVotes.fromMap(Map<String, dynamic> map) {
-    return RestaurantVotes(
+  factory UserVote.fromMap(Map<String, dynamic> map) {
+    return UserVote(
       name: map['category'],
-      average: map['average_votes'] ?? 0,
+      vote: map['vote'] != null ? double.parse('${map['vote']}') : 0,
       icon: map['icon'],
       color: map['color'],
+      username: map['user_name'],
+      userId: map['user_id'],
     );
   }
 
@@ -25,9 +31,11 @@ class RestaurantVotes {
   Map<String, dynamic> toMap() {
     return {
       'text': name,
-      'average_votes': average,
+      'vote': vote,
       'icon': icon,
       'color': color,
+      'username': username,
+      'user_id': userId,
     };
   }
 }

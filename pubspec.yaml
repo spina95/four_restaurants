@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   supabase_flutter: ^2.8.3
   intl: ^0.17.0
+  dotenv: ^4.2.0
+  material_symbols_icons: ^4.2801.1
   
 dev_dependencies:
   flutter_test:

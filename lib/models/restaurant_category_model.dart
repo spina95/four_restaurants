@@ -3,12 +3,16 @@ class RestaurantCategoryVote {
   final String name;
   int? userVote;
   final int? userVoteId;
+  final String? color;
+  final String? icon;
 
   RestaurantCategoryVote({
     required this.id,
     required this.name,
     this.userVote,
     this.userVoteId,
+    this.color,
+    this.icon,
   });
 
   // Metodo per creare un'istanza di Restaurant da una mappa (ad esempio, dai dati di Supabase)
@@ -18,6 +22,8 @@ class RestaurantCategoryVote {
       name: map['category_name'],
       userVote: map['user_vote'],
       userVoteId: map['user_vote_id'],
+      color: map['color'],
+      icon: map['icon'],
     );
   }
 
@@ -28,6 +34,8 @@ class RestaurantCategoryVote {
       'name': name,
       'user_vote': userVote,
       'user_vote_id': userVoteId,
+      'color': color,
+      'icon': icon,
     };
   }
 }
